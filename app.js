@@ -8,12 +8,13 @@ const errorHandlerMiddleware = require('./middleware/error-handler');
 require('dotenv').config();
 
 // Middleware
+// Pointing to Static Frontend File
 app.use(express.static('./public'));
+// parses incoming requests with JSON payloads
 app.use(express.json());
 
 // Route
 app.use('/api/v1/tasks', tasks);
-
 app.use(notFound);
 app.use(errorHandlerMiddleware);
 
